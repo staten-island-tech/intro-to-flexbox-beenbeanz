@@ -1,0 +1,41 @@
+body, html, *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(195, 215, 228);
+    font-family: 'Fuzzy Bubbles';
+    text-align: center;
+}
+.card{
+    width: 20%;
+    height: 500px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+.pic{
+    width: 75%;
+    height: 400px;
+}
+.container{
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+.productName{
+    margin-top: 10px;
+    font-size: 2rem;
+}
+.buyButton{
+    display: block;
+    margin: auto;
+    width: 25%;
+}
+#header{
+    font-size: 4rem;
+}
