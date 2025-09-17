@@ -43,6 +43,7 @@ body{
     background: linear-gradient(to bottom, #5fa4ff, #6fbaf8, #77dcee);
     font-weight: 1000;
     border-radius: 5px;
+    cursor: pointer;
 }
 #header{
     font-size: 4rem;
