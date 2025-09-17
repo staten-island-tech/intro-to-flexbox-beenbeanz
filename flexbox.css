@@ -10,11 +10,13 @@ body{
 }
 .card{
     width: 20%;
-    height: 500px;
+    height: 550px;
     margin: 10px;
     border: 2px solid black;
     border-radius: 10px;
     background-color: aliceblue;
+    align-items: center;
+    box-shadow: 5px 5px 5px;
 }
 .pic{
     width: 75%;
@@ -34,8 +36,17 @@ body{
 .buyButton{
     display: block;
     margin: auto;
-    width: 25%;
+    width: 30%;
+    height: 40px;
+    font-size: 19px;
+    font-family: 'Fuzzy Bubbles';
+    background: linear-gradient(to bottom, #5fa4ff, #6fbaf8, #77dcee);
+    font-weight: 1000;
+    border-radius: 5px;
 }
 #header{
     font-size: 4rem;
+}
+.price{
+    font-size: 2rem;
 }
