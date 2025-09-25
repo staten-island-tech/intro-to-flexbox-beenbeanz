@@ -28,4 +28,7 @@ function houseAlarm(rideHeightOK, withAdult, healthHold){
 }
 console.log(houseAlarm(rideHeightOK,withAdult, healthHold));*/
 
-function whoIsInTheMiddle(){}
+function whoIsInTheMiddle(bowl1, bowl2, bowl3){
+    
+}
+console.log(whoIsInTheMiddle(10, 5, 8))
