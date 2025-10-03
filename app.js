@@ -64,7 +64,7 @@ console.log(telemarketer(8, 8, 6, 8))*/
 console.log(engOrFr(4, "dans un livre", "Connaissant ce coeur qui doute,", "Tu me dirais de tirer un trait", "Quoi que partir me coute."));*/
 
 //occupiedSpaces
-function occupiedSpaces(num, yest, tdy){
+/*function occupiedSpaces(num, yest, tdy){
     let occupiedBothDays = 0;
 
     for(i = 0; i < num; i++){
@@ -74,5 +74,20 @@ function occupiedSpaces(num, yest, tdy){
     }
     return occupiedBothDays;
 }
-console.log(occupiedSpaces(7, 'CCCCCCC', 'C.C.C.C'));
+console.log(occupiedSpaces(7, 'CCCCCCC', 'C.C.C.C'));*/
+
+//wizard
+function wizard(start, num, ...duels){
+    const initialObey = start;
+    for(i = 0; i < num; i++){
+
+        const firstLetter = duels[i][0];
+        const secondLetter = duels[i][2];
+
+        
+        if(duels[0][0]){}
+    }
+    console.log(duels[0][0])
+}
+console.log(wizard('A', 3, 'B A', 'C B', 'D A'));
 
