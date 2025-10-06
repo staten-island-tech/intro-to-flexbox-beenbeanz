@@ -1,93 +1,35 @@
-/*function money(paint, caps, pokedollars){
-    const remainingPaint = paint % caps;
-    const bottleCapsPainted = Math.floor(paint/caps);
-    const dollarsMade = bottleCapsPainted * pokedollars;
-    return dollarsMade + remainingPaint;
-}
-console.log(money(14,3,10));*/
+const container = document.querySelector('.container');
+const products = [
+    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+    {name: 'strawberry', price: 3.99, img: "strawberry_pocky.png"},
+    {name: 'almond crush', price: 4.50, img: "almondcrush.png"},
+    {name: 'banana', price: 4.50, img: "banana.png"},
+    {name: 'matcha', price: 4.99, img: "matcha.png"},
+    {name: 'blueberry', price: 5.50, img: "blueberry.png"},
+    {name: 'peach', price: 5.50, img: "peach.png"},
+    {name: 'mint', price: 5.50, img: "mint.png"},
+    {name: 'cookies and cream', price: 4.99, img: "cookiesncream_pocky.png"},
+    {name: 'coconut', price: 5.50, img: "coconut.png"},
+    {name: 'cranberry', price: 6.50, img: "cranberry.png"},
+    {name: 'cheescake', price: 6.50, img: "cheesecake.png"},
+    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+];
 
-
-//PROBLEM 2: HOUSE ALARM
-/*const doorOpen = true;
-const windowOpen = true;
-
-function houseAlarm(doorOpen, windowOpen){
-    const alarmSilent = !(doorOpen || windowOpen);
-    return alarmSilent
-}
-console.log(houseAlarm(doorOpen, windowOpen));
-
-//PROBLEM 1:
-const rideHeightOK = true;
-const withAdult = true;
-const healthHold = true;
-
-function houseAlarm(rideHeightOK, withAdult, healthHold){
-    const canRide = (rideHeightOK || withAdult) && !(healthHold);
-    return canRide;
-}
-console.log(houseAlarm(rideHeightOK,withAdult, healthHold));*/
-
-/*function whoIsInTheMiddle(a, b, c){
-    if((a > b && a < c) || (a < b && a > c)) return a;
-    if((b > a && b < c) || (b < a && b > c)) return b;
-    else return c;
-}
-console.log(whoIsInTheMiddle(10, 5, 8))
-
-function telemarketer(a, b, c, d){
-    if(
-        (a === 8 || a === 9) &&
-        (d === 8 || d === 9) && 
-        (b === c)
-    ){return 'ignore';}
-    else return 'answer';
-}
-console.log(telemarketer(8, 8, 6, 8))*/
-
-//English or French
-/*function engOrFr(num, ...lines){
-    let sCount = 0;
-    let tCount = 0;
-
-    for(i = 0; i < num; i++){
-        for(j = 0; j < lines[i].length; j++){
-            if(lines[i][j] === 's' || lines[i][j] === 'S') sCount++;
-            if(lines[i][j] === 't' || lines[i][j] === 'T') tCount++;
-        }
-    }
-
-    if(tCount > sCount) return 'English';
-    else if(sCount > tCount) return 'French';
-    else return 'French';
-}
-console.log(engOrFr(4, "dans un livre", "Connaissant ce coeur qui doute,", "Tu me dirais de tirer un trait", "Quoi que partir me coute."));*/
-
-//occupiedSpaces
-/*function occupiedSpaces(num, yest, tdy){
-    let occupiedBothDays = 0;
-
-    for(i = 0; i < num; i++){
-        if(yest[i] === tdy[i] && yest[i] === 'C' & tdy[i] === 'C'){
-            occupiedBothDays++;
-        };
-    }
-    return occupiedBothDays;
-}
-console.log(occupiedSpaces(7, 'CCCCCCC', 'C.C.C.C'));*/
-
-//wizard
-function wizard(start, num, ...duels){
-    const initialObey = start;
-    for(i = 0; i < num; i++){
-
-        const firstLetter = duels[i][0];
-        const secondLetter = duels[i][2];
-
-        
-        if(duels[0][0]){}
-    }
-    console.log(duels[0][0])
-}
-console.log(wizard('A', 3, 'B A', 'C B', 'D A'));
-
+products.forEach(product => {
+    const html = `
+        <div class="card">
+            <h2 class="productName">${product.name}</h2>
+            <img src=${product.img} alt="pocky" class="pic">
+            <p class="price">$${product.price}</p>
+            <button class="buyButton">Buy now</button>
+        </div>
+    `;
+    container.innerHTML += html;
+})
