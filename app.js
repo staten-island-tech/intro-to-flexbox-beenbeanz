@@ -12,15 +12,15 @@ const products = [
     {name: 'cookies and cream', price: 4.99, img: "cookiesncream_pocky.png"},
     {name: 'coconut', price: 5.50, img: "coconut.png"},
     {name: 'cranberry', price: 6.50, img: "cranberry.png"},
-    {name: 'cheescake', price: 6.50, img: "cheesecake.png"},
-    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
-    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
-    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
-    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
-    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
-    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
-    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
-    {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
+    {name: 'cheesecake', price: 6.50, img: "cheesecake.png"},
+    {name: 'nutty almond', price: 5.49, img: "nuttyAlmond.jpg"},
+    {name: 'crunch strawberry', price: 5.49, img: "crunchyStrawberry.png"},
+    {name: 'festive delight', price: 6.99, img: "festiveDelight.jpg"},
+    {name: 'mango', price: 6.00, img: "mango.jpg"},
+    {name: 'melon', price: 6.00, img: "melon.jpg"},
+    {name: 'orange', price: 5.49, img: "orange.jpg"},
+    {name: 'salted vanilla', price: 5.49, img: "saltedVanilla.jpg"},
+    {name: 'strawberry peach yogurt', price: 5.49, img: "strawberryPeachYogurt.jpg"},
 ];
 
 products.forEach(product => {
@@ -33,4 +33,4 @@ products.forEach(product => {
         </div>
     `;
     container.innerHTML += html;
-})
+});
