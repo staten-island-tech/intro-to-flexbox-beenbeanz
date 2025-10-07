@@ -1,4 +1,5 @@
 const container = document.querySelector('.container');
+const btns = document.querySelectorAll(".buyButton");
 const products = [
     {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
     {name: 'strawberry', price: 3.99, img: "strawberry_pocky.png"},
