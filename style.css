@@ -77,3 +77,16 @@ body{
 .card:hover{
     background-color: rgb(185, 211, 228);
 }
+.filterBtns{
+    display: inline-block;
+    margin: auto;
+    width: 10%;
+    height: 45px;
+    font-size: 25px;
+    font-family: 'Fuzzy Bubbles';
+    background: linear-gradient(to bottom, #f8d492, #fac460, #ffae17);
+    font-weight: 1000;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}

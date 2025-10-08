@@ -1,5 +1,8 @@
 const container = document.querySelector('.container');
 const btns = document.querySelectorAll(".buyButton");
+const filterBtns = document.querySelectorAll(".filterBtns");
+btns.forEach(btn => btn.addEventListener("click", addToCart));
+const cart = [];
 const products = [
     {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
     {name: 'strawberry', price: 3.99, img: "strawberry_pocky.png"},
@@ -28,9 +31,73 @@ products.forEach(product => {
         <div class="card">
             <h2 class="productName">${product.name}</h2>
             <img src=${product.img} alt="pocky" class="pic">
-            <p class="price">$${product.price}</p>
-            <button class="buyButton">Buy now</button>
+            <p class="price">$${product.price.toFixed(2)}</p>
+            <button class="buyButton">Add to cart</button>
         </div>
     `;
     container.innerHTML += html;
 });
+
+function filter3(){
+    container.innerHTML = '';
+    products.filter(pocky => pocky.price >= 3 && pocky.price < 4).forEach(pocky => {
+        const html = `
+            <div class="card">
+                <h2 class="productName">${pocky.name}</h2>
+                <img src=${pocky.img} alt="pocky" class="pic">
+                <p class="price">$${pocky.price.toFixed(2)}</p>
+                <button class="buyButton">Add to cart</button>
+            </div>
+        `;
+        container.innerHTML += html;
+    });
+}
+
+function filter4(){
+    container.innerHTML = '';
+    products.filter(pocky => pocky.price >= 4 && pocky.price < 5).forEach(pocky => {
+        const html = `
+            <div class="card">
+                <h2 class="productName">${pocky.name}</h2>
+                <img src=${pocky.img} alt="pocky" class="pic">
+                <p class="price">$${pocky.price.toFixed(2)}</p>
+                <button class="buyButton">Add to cart</button>
+            </div>
+        `;
+        container.innerHTML += html;
+    });
+}
+
+function filter5(){
+    container.innerHTML = '';
+    products.filter(pocky => pocky.price >= 5 && pocky.price < 6).forEach(pocky => {
+        const html = `
+            <div class="card">
+                <h2 class="productName">${pocky.name}</h2>
+                <img src=${pocky.img} alt="pocky" class="pic">
+                <p class="price">$${pocky.price.toFixed(2)}</p>
+                <button class="buyButton">Add to cart</button>
+            </div>
+        `;
+        container.innerHTML += html;
+    });
+}
+
+function filter6(){
+    container.innerHTML = '';
+    products.filter(pocky => pocky.price >= 6 && pocky.price < 7).forEach(pocky => {
+        const html = `
+            <div class="card">
+                <h2 class="productName">${pocky.name}</h2>
+                <img src=${pocky.img} alt="pocky" class="pic">
+                <p class="price">$${pocky.price.toFixed(2)}</p>
+                <button class="buyButton">Add to cart</button>
+            </div>
+        `;
+        container.innerHTML += html;
+    });
+}
+
+function addToCart(){
+    
+}
