@@ -1,7 +1,7 @@
 const container = document.querySelector('.container');
-const btns = document.querySelectorAll(".buyButton");
 const filterBtns = document.querySelectorAll(".filterBtns");
-btns.forEach(btn => btn.addEventListener("click", addToCart));
+const cartBtn = document.querySelector('.cartBtn');
+cartBtn.addEventListener('click', showCart);
 const cart = [];
 const products = [
     {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
@@ -38,6 +38,14 @@ products.forEach(product => {
     container.innerHTML += html;
 });
 
+const cartBtns = document.querySelectorAll(".buyButton");
+cartBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        const productToAdd = products[index];
+        cart.push(productToAdd);
+    });
+});
+
 function filter3(){
     container.innerHTML = '';
     products.filter(pocky => pocky.price >= 3 && pocky.price < 4).forEach(pocky => {
@@ -51,6 +59,14 @@ function filter3(){
         `;
         container.innerHTML += html;
     });
+    
+    const cartBtns = document.querySelectorAll(".buyButton");
+    cartBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        const productToAdd = products[index];
+        cart.push(productToAdd);
+    });
+});
 }
 
 function filter4(){
@@ -66,6 +82,15 @@ function filter4(){
         `;
         container.innerHTML += html;
     });
+
+    
+    const cartBtns = document.querySelectorAll(".buyButton");
+    cartBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        const productToAdd = products[index];
+        cart.push(productToAdd);
+    });
+});
 }
 
 function filter5(){
@@ -80,7 +105,15 @@ function filter5(){
             </div>
         `;
         container.innerHTML += html;
+    }); 
+        
+    const cartBtns = document.querySelectorAll(".buyButton");
+    cartBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        const productToAdd = products[index];
+        cart.push(productToAdd);
     });
+});
 }
 
 function filter6(){
@@ -96,8 +129,28 @@ function filter6(){
         `;
         container.innerHTML += html;
     });
+    
+    const cartBtns = document.querySelectorAll(".buyButton");
+    cartBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            const productToAdd = products[index];
+            cart.push(productToAdd);
+        });
+    });
 }
 
-function addToCart(){
-    
+function showCart(){
+    container.innerHTML = '';
+
+    cart.forEach(pocky => {
+        const html = `
+            <div class="card">
+                <h2 class="productName">${pocky.name}</h2>
+                <img src=${pocky.img} alt="pocky" class="pic">
+                <p class="price">$${pocky.price.toFixed(2)}</p>
+            </div>
+        `;
+        container.innerHTML += html;
+    });
+    console.log(cart)
 }
