@@ -2,7 +2,6 @@ const container = document.querySelector('.container');
 const filterBtns = document.querySelectorAll(".filterBtns");
 const cartBtn = document.querySelector('.cartBtn');
 cartBtn.addEventListener('click', showCart);
-const cart = [];
 const products = [
     {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
     {name: 'strawberry', price: 3.99, img: "strawberry_pocky.png"},
@@ -38,13 +37,43 @@ products.forEach(product => {
     container.innerHTML += html;
 });
 
-const cartBtns = document.querySelectorAll(".buyButton");
-cartBtns.forEach((btn, index) => {
+function cart(){
+    const cartBtns = document.querySelectorAll(".buyButton");
+
+    const cartBtnArr = Array.from(cartBtns);
+
+    cartBtnArr.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            console.log(e.target.closest('.card'));            
+        });
+    });
+}
+cart();
+
+
+
+function filterAll(){
+    container.innerHTML = '';
+    products.forEach(pocky => {
+        const html = `
+            <div class="card">
+                <h2 class="productName">${pocky.name}</h2>
+                <img src=${pocky.img} alt="pocky" class="pic">
+                <p class="price">$${pocky.price.toFixed(2)}</p>
+                <button class="buyButton">Add to cart</button>
+            </div>
+        `;
+        container.innerHTML += html;
+    });
+    
+    const cartBtns = document.querySelectorAll(".buyButton");
+    cartBtns.forEach((btn, index) => {
     btn.addEventListener('click', () => {
         const productToAdd = products[index];
         cart.push(productToAdd);
     });
 });
+}
 
 function filter3(){
     container.innerHTML = '';
