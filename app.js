@@ -50,8 +50,6 @@ function cart(){
 }
 cart();
 
-
-
 function filterAll(){
     container.innerHTML = '';
     products.forEach(pocky => {
