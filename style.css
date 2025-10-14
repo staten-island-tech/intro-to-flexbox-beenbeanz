@@ -47,6 +47,7 @@ body{
 }
 #header{
     font-size: 4rem;
+    margin: 20px;
 }
 .price{
     font-size: 2rem;
@@ -89,4 +90,33 @@ body{
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
+}
+.total{
+    margin-top: 100px;
+    font-size: 2rem;
+}
+.cartBtn{
+    display: inline-block;
+    margin: auto;
+    width: 10%;
+    height: 45px;
+    font-size: 25px;
+    font-family: 'Fuzzy Bubbles';
+    background: linear-gradient(to bottom, #3c1e91, #8d6be9, #ad92f8);
+    font-weight: 1000;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.deleteButton{
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: 40px;
+    font-size: 19px;
+    font-family: 'Fuzzy Bubbles';
+    background: linear-gradient(to bottom, #5fa4ff, #6fbaf8, #77dcee);
+    font-weight: 1000;
+    border-radius: 5px;
+    cursor: pointer;
 }

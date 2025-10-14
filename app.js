@@ -2,6 +2,8 @@ const container = document.querySelector('.container');
 const filterBtns = document.querySelectorAll(".filterBtns");
 const cartBtn = document.querySelector('.cartBtn');
 cartBtn.addEventListener('click', showCart);
+const cart = [];
+const productsTotal = document.querySelector('.total');
 const products = [
     {name: 'chocolate', price: 3.99, img: "chocolate_pocky.png"},
     {name: 'strawberry', price: 3.99, img: "strawberry_pocky.png"},
@@ -25,6 +27,7 @@ const products = [
     {name: 'strawberry peach yogurt', price: 5.49, img: "strawberryPeachYogurt.jpg"},
 ];
 
+//initial rendering of products
 products.forEach(product => {
     const html = `
         <div class="card">
@@ -36,116 +39,22 @@ products.forEach(product => {
     `;
     container.innerHTML += html;
 });
-
-function cart(){
+//initial cart func 
+function addToCart(){
     const cartBtns = document.querySelectorAll(".buyButton");
-
-    const cartBtnArr = Array.from(cartBtns);
-
-    cartBtnArr.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            console.log(e.target.closest('.card'));            
+    cartBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            const productToAdd = products[index];
+            cart.push(productToAdd);
         });
     });
 }
-cart();
+addToCart();
 
-function filterAll(){
+function renderFilter(array){
     container.innerHTML = '';
-    products.forEach(pocky => {
-        const html = `
-            <div class="card">
-                <h2 class="productName">${pocky.name}</h2>
-                <img src=${pocky.img} alt="pocky" class="pic">
-                <p class="price">$${pocky.price.toFixed(2)}</p>
-                <button class="buyButton">Add to cart</button>
-            </div>
-        `;
-        container.innerHTML += html;
-    });
     
-    const cartBtns = document.querySelectorAll(".buyButton");
-    cartBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-        const productToAdd = products[index];
-        cart.push(productToAdd);
-    });
-});
-}
-
-function filter3(){
-    container.innerHTML = '';
-    products.filter(pocky => pocky.price >= 3 && pocky.price < 4).forEach(pocky => {
-        const html = `
-            <div class="card">
-                <h2 class="productName">${pocky.name}</h2>
-                <img src=${pocky.img} alt="pocky" class="pic">
-                <p class="price">$${pocky.price.toFixed(2)}</p>
-                <button class="buyButton">Add to cart</button>
-            </div>
-        `;
-        container.innerHTML += html;
-    });
-    
-    const cartBtns = document.querySelectorAll(".buyButton");
-    cartBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-        const productToAdd = products[index];
-        cart.push(productToAdd);
-    });
-});
-}
-
-function filter4(){
-    container.innerHTML = '';
-    products.filter(pocky => pocky.price >= 4 && pocky.price < 5).forEach(pocky => {
-        const html = `
-            <div class="card">
-                <h2 class="productName">${pocky.name}</h2>
-                <img src=${pocky.img} alt="pocky" class="pic">
-                <p class="price">$${pocky.price.toFixed(2)}</p>
-                <button class="buyButton">Add to cart</button>
-            </div>
-        `;
-        container.innerHTML += html;
-    });
-
-    
-    const cartBtns = document.querySelectorAll(".buyButton");
-    cartBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-        const productToAdd = products[index];
-        cart.push(productToAdd);
-    });
-});
-}
-
-function filter5(){
-    container.innerHTML = '';
-    products.filter(pocky => pocky.price >= 5 && pocky.price < 6).forEach(pocky => {
-        const html = `
-            <div class="card">
-                <h2 class="productName">${pocky.name}</h2>
-                <img src=${pocky.img} alt="pocky" class="pic">
-                <p class="price">$${pocky.price.toFixed(2)}</p>
-                <button class="buyButton">Add to cart</button>
-            </div>
-        `;
-        container.innerHTML += html;
-    }); 
-        
-    const cartBtns = document.querySelectorAll(".buyButton");
-    cartBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-        const productToAdd = products[index];
-        cart.push(productToAdd);
-    });
-});
-}
-
-function filter6(){
-    container.innerHTML = '';
-    products.filter(pocky => pocky.price >= 6 && pocky.price < 7).forEach(pocky => {
+    array.forEach(pocky => {
         const html = `
             <div class="card">
                 <h2 class="productName">${pocky.name}</h2>
@@ -160,14 +69,36 @@ function filter6(){
     const cartBtns = document.querySelectorAll(".buyButton");
     cartBtns.forEach((btn, index) => {
         btn.addEventListener('click', () => {
-            const productToAdd = products[index];
+            const productToAdd = array[index];
             cart.push(productToAdd);
         });
     });
+    productsTotal.style.display = 'none';
+}
+
+function filterAll(){
+    renderFilter(products);
+}
+
+function filter3(){
+    renderFilter(products.filter(pocky => pocky.price >= 3 && pocky.price < 4));
+}
+
+function filter4(){
+    renderFilter(products.filter(pocky => pocky.price >= 4 && pocky.price < 5));
+}
+
+function filter5(){
+   renderFilter(products.filter(pocky => pocky.price >= 5 && pocky.price < 6));
+}
+
+function filter6(){
+    renderFilter(products.filter(pocky => pocky.price >= 6 && pocky.price < 7));
 }
 
 function showCart(){
     container.innerHTML = '';
+    let total = 0;
 
     cart.forEach(pocky => {
         const html = `
@@ -175,9 +106,40 @@ function showCart(){
                 <h2 class="productName">${pocky.name}</h2>
                 <img src=${pocky.img} alt="pocky" class="pic">
                 <p class="price">$${pocky.price.toFixed(2)}</p>
+                <button class="deleteButton">Remove from cart</button>
             </div>
         `;
         container.innerHTML += html;
+        total += pocky.price
     });
-    console.log(cart)
+
+    productsTotal.style.display = 'inline-block';
+    productsTotal.innerHTML = `Your total is $${total.toFixed(2)}`;
+
+    const deleteBtns = document.querySelectorAll('.deleteButton');
+    deleteBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            const productToRemove = cart[index];
+            cart.splice(cart.indexOf(productToRemove), 1);
+            container.innerHTML = '';
+            productsTotal.style.display = 'none';
+            total = 0;
+            cart.forEach(pocky => {
+                const html = `
+                    <div class="card">
+                        <h2 class="productName">${pocky.name}</h2>
+                        <img src=${pocky.img} alt="pocky" class="pic">
+                        <p class="price">$${pocky.price.toFixed(2)}</p>
+                        <button class="deleteButton">Remove from cart</button>
+                    </div>
+                `;
+                container.innerHTML += html;
+                productsTotal.style.display = 'inline-block';
+                total += pocky.price
+            });
+        });
+    });
+
 }
+
+    
