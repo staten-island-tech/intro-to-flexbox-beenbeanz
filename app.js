@@ -110,36 +110,36 @@ function showCart(){
             </div>
         `;
         container.innerHTML += html;
-        total += pocky.price
+        total += pocky.price;
     });
 
     productsTotal.style.display = 'inline-block';
     productsTotal.innerHTML = `Your total is $${total.toFixed(2)}`;
-
-    const deleteBtns = document.querySelectorAll('.deleteButton');
-    deleteBtns.forEach((btn, index) => {
-        btn.addEventListener('click', () => {
-            const productToRemove = cart[index];
-            cart.splice(cart.indexOf(productToRemove), 1);
-            container.innerHTML = '';
-            productsTotal.style.display = 'none';
-            total = 0;
-            cart.forEach(pocky => {
-                const html = `
-                    <div class="card">
-                        <h2 class="productName">${pocky.name}</h2>
-                        <img src=${pocky.img} alt="pocky" class="pic">
-                        <p class="price">$${pocky.price.toFixed(2)}</p>
-                        <button class="deleteButton">Remove from cart</button>
-                    </div>
-                `;
-                container.innerHTML += html;
-                productsTotal.style.display = 'inline-block';
-                total += pocky.price
-            });
-        });
-    });
-
 }
 
-    
+//remove from cart 
+container.addEventListener('click', e => {
+    if(e.target.classList.contains('deleteButton')){
+        const selectedCard = e.target.closest('.card');
+        const index = Array.from(cart).indexOf(selectedCard);
+        cart.splice(index, 1);
+        
+        productsTotal.style.display = 'none';
+        container.innerHTML = '';
+        let total = 0;
+        cart.forEach(pocky => {
+            const html = `
+                <div class="card">
+                    <h2 class="productName">${pocky.name}</h2>
+                    <img src=${pocky.img} alt="pocky" class="pic">
+                    <p class="price">$${pocky.price.toFixed(2)}</p>
+                    <button class="deleteButton">Remove from cart</button>
+                </div>
+            `;
+            total += pocky.price;
+            container.innerHTML += html;
+        });
+        productsTotal.style.display = 'inline-block';
+        productsTotal.innerHTML = `Your total is $${total.toFixed(2)}`;
+    }
+});
