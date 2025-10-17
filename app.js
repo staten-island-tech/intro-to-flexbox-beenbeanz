@@ -24,7 +24,7 @@ const products = [
     {name: 'melon', price: 6.00, img: "melon.jpg"},
     {name: 'orange', price: 5.49, img: "orange.jpg"},
     {name: 'salted vanilla', price: 5.49, img: "saltedVanilla.jpg"},
-    {name: 'strawberry peach yogurt', price: 5.49, img: "strawberryPeachYogurt.jpg"},
+    {name: 'strawberry peach', price: 5.49, img: "strawberryPeachYogurt.jpg"},
 ];
 
 //initial rendering of products
